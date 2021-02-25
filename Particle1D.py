@@ -29,7 +29,7 @@ class Particle (object):
 
     def F(self, x, v, t):
         # The force on a free particle is 0
-        return array([0.0])
+        return np.array([0.0,0.0])
 
     def Euler_step(self): 
         """
