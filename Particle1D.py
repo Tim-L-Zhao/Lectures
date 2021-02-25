@@ -29,7 +29,7 @@ class Particle (object):
 
     def F(self, x, v, t):
         # The force on a free particle is 0
-        return np.array([0.0,0.0])
+        return 0
 
     def Euler_step(self): 
         """
@@ -90,10 +90,9 @@ class Particle (object):
             v_verlet.append(self.v)
             x_verlet.append(self.x)
             self.Verlet_step()
-        
+
         self.x_verlet = np.array(x_verlet)
         self.v_verlet = np.array(v_verlet)
-
 
     def scipy_trajectory(self):
         """calculate trajectory using SciPy ode integrator"""
@@ -121,12 +120,13 @@ class Particle (object):
     def plot(self, pt = 'trajectory', axs = None):
         """
         Make nice plots of our results
-        """
+        """     
+
         if not axs:
             fig1 = plt.figure()
             ax1 = fig1.add_subplot(111)
         
-        
+       
         if hasattr(self,'xv'):
 
             if pt == 'trajectory':
